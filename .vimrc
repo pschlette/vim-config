@@ -7,13 +7,27 @@ set nocompatible
 " Turn on syntax highlighting
 syntax on
 
+" Show what's happening in the bottom right corner
+set showcmd
+
+" Use space as leader key
+map <Space> <Leader>
+nnoremap <Leader>w :w<CR>
+
+" Enter 'jj' in insert mode to return to normal mode
+inoremap jj <ESC>
+
 " I like desert
 color desert
 
 " Allow hidden buffers
 set hidden
+
 " Always show tab listing, even if only 1 tab is open
 set showtabline=2
+" Ctrl-n and Ctrl-p to move to next and previous tab
+nnoremap <C-n> :tabn<CR>
+nnoremap <C-p> :tabp<CR>
 
 " Line numbers
 set number
