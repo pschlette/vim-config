@@ -75,3 +75,6 @@ autocmd FileType javascript setlocal expandtab sw=4 ts=4 tw=0
 " indentLine plugin configuration
 let g:indentLine_char = '|'
 let g:indentLine_color_term=235
+
+" ctrlp plugin configuration
+let g:ctrlp_map = '<Leader>t'
