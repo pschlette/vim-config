@@ -19,6 +19,10 @@ inoremap jj <ESC>
 
 " I like desert
 color desert
+" color desert256
+" Solarized is nice too
+" set background=dark
+" color solarized
 
 " Allow hidden buffers
 set hidden
@@ -28,6 +32,9 @@ set showtabline=2
 " Ctrl-n and Ctrl-p to move to next and previous tab
 nnoremap <C-n> :tabn<CR>
 nnoremap <C-p> :tabp<CR>
+
+" Highlight search results
+set hlsearch
 
 " Line numbers
 set number
@@ -45,9 +52,13 @@ set formatoptions=tcq
 set ai
 set copyindent
 set smarttab
+set expandtab
 
 " Get menu for autocompletes like :find
 set wildmenu
+
+" Don't look into node_modules - there's a zillion files in there and I (usually) don't care about any of them
+set wildignore+=*/node_modules/*
 
 " Allow backspacing over all kinds of stuff
 set backspace=indent,eol,start
@@ -68,9 +79,11 @@ filetype plugin on
 filetype indent on
 
 " Language-specific 
-autocmd FileType html setlocal sw=2 ts=2
-autocmd FileType ruby setlocal expandtab sw=2 ts=2 tw=0
-autocmd FileType javascript setlocal expandtab sw=4 ts=4 tw=0
+autocmd FileType html,ruby,eruby,css,scss setlocal sw=2 ts=2 tw=0
+autocmd FileType javascript setlocal sw=4 ts=4 tw=0
+
+" Automatic text wrapping at col 80 for git commits
+autocmd FileType gitcommit setlocal tw=80
 
 " indentLine plugin configuration
 let g:indentLine_char = '|'
@@ -78,3 +91,10 @@ let g:indentLine_color_term=235
 
 " ctrlp plugin configuration
 let g:ctrlp_map = '<Leader>t'
+
+" use eslint
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_scss_checkers = ['']
+
+set cole=1
+let g:javascript_conceal_function="ƒ"
