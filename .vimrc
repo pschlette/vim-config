@@ -19,10 +19,6 @@ inoremap jj <ESC>
 
 " I like desert
 color desert
-" color desert256
-" Solarized is nice too
-" set background=dark
-" color solarized
 
 " Allow hidden buffers
 set hidden
@@ -38,14 +34,16 @@ set hlsearch
 
 " Line numbers
 set number
+" Highlight the line the cursor's on
+set cursorline
 
 " Set location for backup and swap files, respectively
 set backupdir=./.backup,/tmp//,.
 set directory=./.backup,/tmp//,.
 
 " Lots of stuff for indents and text width
-set tabstop=4
-set shiftwidth=4
+set tabstop=2
+set shiftwidth=2
 set nowrap
 set textwidth=150
 set formatoptions=tcq
@@ -78,23 +76,17 @@ filetype on
 filetype plugin on
 filetype indent on
 
-" Language-specific 
-autocmd FileType html,ruby,eruby,css,scss setlocal sw=2 ts=2 tw=0
-autocmd FileType javascript setlocal sw=4 ts=4 tw=0
-
 " Automatic text wrapping at col 80 for git commits
 autocmd FileType gitcommit setlocal tw=80
 
-" indentLine plugin configuration
-let g:indentLine_char = '|'
-let g:indentLine_color_term=235
-
 " ctrlp plugin configuration
 let g:ctrlp_map = '<Leader>t'
+let g:ctrlp_root_markers = ['package.json']
+" ignore gitignored files
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 " use eslint
 let g:syntastic_javascript_checkers = ['eslint']
+" use locally installed eslint (rather than global)
+let g:syntastic_javascript_eslint_exe = 'node_modules/.bin/eslint'
 let g:syntastic_scss_checkers = ['']
-
-set cole=1
-let g:javascript_conceal_function="ƒ"
