@@ -16,3 +16,6 @@
 [submodule "neomake"]
 	path = .vim/bundle/neomake
 	url = https://github.com/neomake/neomake.git
+[submodule "vim-surround"]
+	path = .vim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
